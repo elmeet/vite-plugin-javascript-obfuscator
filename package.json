@@ -1,0 +1,42 @@
+{
+  "name": "vite-plugin-javascript-obfuscator",
+  "version": "1.0.0",
+  "description": "Vite plugin for javascript-obfuscator",
+  "main": "dist/vite-plugin-javascript-obfuscator.cjs.js",
+  "module": "dist/vite-plugin-javascript-obfuscator.es.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "prebuild": "rm -rf dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmeet/vite-plugin-javascript-obfuscator.git"
+  },
+  "keywords": [
+    "vite",
+    "obfuscator",
+    "obfuscation",
+    "uglify",
+    "crush",
+    "code protection",
+    "javascript obfuscator",
+    "js obfuscator"
+  ],
+  "author": "elmeet@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elmeet/vite-plugin-javascript-obfuscator/issues"
+  },
+  "homepage": "https://github.com/elmeet/vite-plugin-javascript-obfuscator#readme",
+  "dependencies": {
+    "javascript-obfuscator": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "rollup": "^2.76.0",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
