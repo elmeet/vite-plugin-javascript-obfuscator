@@ -1,6 +1,6 @@
 # vite-plugin-javascript-obfuscator
 
-Vite plugin for javascript-obfuscator
+A Vite Plugin for [javascript-obfuscator](https://www.npmjs.com/package/javascript-obfuscator)
 
 ## Installation
 
@@ -11,37 +11,60 @@ Install the package:
 
 ## Usage
 
-
 vite.config.js
-```javascript
-import obfuscatorPlugin from 'vite-plugin-javascript-obfuscator'
 
+```javascript
+import obfuscatorPlugin from "vite-plugin-javascript-obfuscator";
 
 export default defineConfig({
-    // ... 
-    plugins: [
-        // other plugin ...
-        obfuscatorPlugin({
-            matchFile: path => {
-                // Customize your rules    
-                return /\.(ob-max)\.js$/.test(path)
+  // ...
+  plugins: [
+    // other plugin ...
+    obfuscatorPlugin({
+      options: {
+        // your javascript-obfuscator options 
 
-                // Or return true to match all
-                // return true
-            },
-            options: {
-                // compact: true,
-                // controlFlowFlattening: false,
-                // controlFlowFlatteningThreshold: 0.75,
-                // deadCodeInjection: false,
-                // deadCodeInjectionThreshold: 0.4,
-                // debugProtection: false,
-                // debugProtectionInterval: 0,
-                // ... [See more](https://github.com/javascript-obfuscator/javascript-obfuscator)
-            }
-        }),
-    ]
-    // ...
-})
+        // compact: true,
+        // controlFlowFlattening: false,
+        // ...  [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator)
+      },
+    }),
+  ],
+  // ...
+});
+```
 
+**Include or exclude files**
+
+vite.config.js
+
+```javascript
+import obfuscatorPlugin from "vite-plugin-javascript-obfuscator";
+
+export default defineConfig({
+  // ...
+  plugins: [
+    // other plugin ...
+    obfuscatorPlugin({
+      matchFile: (path) => {
+        // If you want to exclude some files, you can return false
+        // Example: Exclude files ending in foo.js, foo.ts, and foo.tsx
+        if(/foo\.(js|tsx?)$/.test(path)){
+            return false
+        }
+
+        // Customize your includes rules. 
+        return /\.(js|tsx?|cjs|mjs)$/.test(path) 
+      },
+      options: {
+        // your javascript-obfuscator options 
+
+        // compact: true,
+        // controlFlowFlattening: false,
+        // ...  [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator)
+      },
+    }),
+  ],
+  // ...
+});
 ```
