@@ -6,12 +6,12 @@ const _matchFile = (path) => matchFileReg.test(path);
 export default function obfuscatorPlugin({ matchFile, options = {} } = {}) {
   return {
     name: "vite-plugin-javascript-obfuscator",
-    enfore: "post",
+    enforce: "post",
     transform(src, id) {
       matchFile = matchFile || _matchFile;
       if (typeof matchFile !== "function") {
-        console.warn('matchFile is not function')
-        return
+        console.warn("matchFile is not function");
+        return;
       }
       if (matchFile(id)) {
         const obfuscationResult = obfuscate(src, options);
