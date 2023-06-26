@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-javascript-obfuscator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Vite Plugin for javascript-obfuscator",
   "main": "dist/vite-plugin-javascript-obfuscator.cjs.js",
   "module": "dist/vite-plugin-javascript-obfuscator.es.js",
