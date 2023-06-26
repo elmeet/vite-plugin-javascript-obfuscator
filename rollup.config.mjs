@@ -1,9 +1,10 @@
-import babel from "rollup-plugin-babel";
-import pkg from "./package.json";
+import resolve from "@rollup/plugin-node-resolve";
+import typescript from "@rollup/plugin-typescript";
+import pkg from "./package.json" assert { type: "json" };
 const external = Object.keys(pkg.dependencies);
 
 export default {
-  input: "src/index.js",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
@@ -16,5 +17,5 @@ export default {
   ],
   external: external,
   sourcemap: true,
-  plugins: [babel()],
+  plugins: [resolve(), typescript()],
 };
