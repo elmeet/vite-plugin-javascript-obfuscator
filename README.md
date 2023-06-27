@@ -24,9 +24,7 @@ export default defineConfig({
     obfuscatorPlugin({
       options: {
         // your javascript-obfuscator options
-        compact: true,
         debugProtection: true,
-        controlFlowFlattening: false,
         // ...  [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator)
       },
     }),
@@ -49,10 +47,8 @@ export default defineConfig({
       apply: "build",
       debugger: true,
       options: {
-        /** your javascript-obfuscator options */ 
-        // compact: true,
-        // debugProtection: true,
-        // controlFlowFlattening: false,
+        // your javascript-obfuscator options
+        debugProtection: true,
         // ...  [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator)
       },
     }),
@@ -62,10 +58,10 @@ export default defineConfig({
 
 ### Params
 
-|      Name      |   Type    | Default | Description                                                                                                                                                                              |
-| :------------: | :-------: | :-----: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
-| **`include`**  |  `Array\|String\|RegExp\|Function` | `[/\.(jsx?\|tsx?\|cjs\|mjs\|vue\|svelte\|astro)$/]` | Configure this option to include files |
+|    Name    | Type | Default | Description   |
+| :------------: | :----: | :-----: | :----------------------------------------------------------------------------------------------------: | 
+| **`include`**  |  `Array\|String\|RegExp\|Function` | `[/\.(jsx?\|tsx?\|cjs\|mjs)$/]` | Configure this option to include files |
 | **`exclude`**  |  `Array\|String\|RegExp\|Function` | `[/node_modules/, /\.nuxt/]`| Configure this option to exclude files |
 | **`options`**  |  `Object` | javascript-obfuscator default options | [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator) |
-| **`apply`**   | `'serve' \| 'build' \| ((this: void, config: UserConfig, env: ConfigEnv) => boolean)`| both serve and build. `() => true`  | By default plugins are invoked for both serve and build. In cases where a plugin needs to be conditionally applied only during serve or build, use the apply property to only invoke them during `vite build` or `vite serve`  |
+| **`apply`**   | `'serve' \| 'build'` | both serve and build. | By default plugins are invoked for both serve and build. In cases where a plugin needs to be conditionally applied only during serve or build, use the apply property to only invoke them during `vite build` or `vite serve`  |
 | **`debugger`** | `Boolean` | `false` | Used for debugging, Print out the path of matching or excluding files. |
