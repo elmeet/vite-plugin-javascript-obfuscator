@@ -2,12 +2,12 @@ import { obfuscate, ObfuscatorOptions } from "javascript-obfuscator";
 import anymatch, { Matcher } from "anymatch";
 import { resolve } from "path";
 
-const defaultIncludeMatcher = [/\.(jsx?|tsx?|cjs|mjs|vue|svelte|astro)$/];
+const defaultIncludeMatcher = [/\.(jsx?|tsx?|cjs|mjs)$/];
 const defaultExcludeMatcher = [/node_modules/, /\.nuxt/];
 
 type Options = {
   /**
-   * (Array|String|RegExp|Function) String to be directly matched, string with glob patterns, regular expression test, function that takes the testString as an argument and returns a truthy value if it should be matched. default: ```[/.(jsx?|tsx?|cjs|mjs|vue|svelte|astro)$/]```
+   * (Array|String|RegExp|Function) String to be directly matched, string with glob patterns, regular expression test, function that takes the testString as an argument and returns a truthy value if it should be matched. default: ```[/\.(jsx?|tsx?|cjs|mjs)$/]```
    * [See more](https://github.com/micromatch/anymatch)
    */
   include?: Matcher;
