@@ -42,7 +42,7 @@ function handleMatcher(matcher: Matcher): Matcher {
     if (typeof matcher !== "string") {
       return matcher;
     }
-    return resolve(".", matcher);
+    return resolve(".", matcher).replace(/\\/g, "/");
   });
 }
 
